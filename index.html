@@ -5,115 +5,133 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Jstore menawarkan servis IPTV lifetime tanpa bayaran bulanan. Tonton pelbagai saluran dengan mudah melalui OTT app." />
   <link rel="icon" href="https://iili.io/H7B4QYF.png" type="image/png" />
-  <title>IPTV Store - Jstore</title>
+  <title>Jstore IPTV Lifetime</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    /* Animasi naik ke atas */
-    @keyframes floatUp {
-      0% {
-        transform: translateY(100vh) scale(0.5);
-        opacity: 0;
-      }
-      50% {
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(-10vh) scale(1);
-        opacity: 0;
-      }
+    body {
+      background: radial-gradient(ellipse at bottom, #0f172a, #000);
+      overflow-x: hidden;
     }
 
-    .rocket-bg {
+    /* Stars Animation Layer */
+    .stars, .stars2, .stars3 {
       position: fixed;
       top: 0;
       left: 0;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
+      width: 200%;
+      height: 200%;
+      background: transparent;
       z-index: -1;
+      content: '';
     }
 
-    .rocket {
-      position: absolute;
-      width: 20px;
-      height: 20px;
-      background: url('https://cdn-icons-png.flaticon.com/512/3214/3214601.png') no-repeat center;
-      background-size: contain;
-      animation: floatUp linear infinite;
+    .stars {
+      box-shadow:
+        200px 400px #fff, 300px 100px #fff, 500px 300px #fff,
+        700px 200px #fff, 1000px 600px #fff, 1200px 400px #fff;
+      animation: moveStars 100s linear infinite;
+      opacity: 0.7;
     }
 
-    /* Generate multiple unique rocket animations */
-    .rocket:nth-child(1)  { left: 10%; animation-duration: 12s; animation-delay: 0s; }
-    .rocket:nth-child(2)  { left: 30%; animation-duration: 14s; animation-delay: 2s; }
-    .rocket:nth-child(3)  { left: 50%; animation-duration: 10s; animation-delay: 1s; }
-    .rocket:nth-child(4)  { left: 70%; animation-duration: 16s; animation-delay: 3s; }
-    .rocket:nth-child(5)  { left: 90%; animation-duration: 11s; animation-delay: 4s; }
-    .rocket:nth-child(6)  { left: 20%; animation-duration: 13s; animation-delay: 1s; }
-    .rocket:nth-child(7)  { left: 40%; animation-duration: 15s; animation-delay: 2.5s; }
-    .rocket:nth-child(8)  { left: 60%; animation-duration: 12s; animation-delay: 0.5s; }
-    .rocket:nth-child(9)  { left: 80%; animation-duration: 14s; animation-delay: 1.5s; }
-    .rocket:nth-child(10) { left: 25%; animation-duration: 17s; animation-delay: 0s; }
+    .stars2 {
+      box-shadow:
+        150px 250px #fff, 350px 600px #fff, 800px 100px #fff,
+        1100px 300px #fff, 900px 700px #fff, 600px 500px #fff;
+      animation: moveStars 120s linear infinite;
+      opacity: 0.5;
+    }
+
+    .stars3 {
+      box-shadow:
+        100px 150px #fff, 400px 200px #fff, 650px 400px #fff,
+        850px 500px #fff, 1050px 100px #fff, 1250px 300px #fff;
+      animation: moveStars 140s linear infinite;
+      opacity: 0.3;
+    }
+
+    @keyframes moveStars {
+      0% { transform: translate(0, 0); }
+      100% { transform: translate(-500px, -1000px); }
+    }
+
+    /* Glass Effect Card */
+    .glass-card {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 1rem;
+    }
+
+    /* Glowing Button */
+    .glow-btn {
+      box-shadow: 0 0 20px rgba(255, 0, 128, 0.6), 0 0 30px rgba(255, 0, 128, 0.2);
+    }
   </style>
 </head>
-<body class="bg-gray-900 text-white font-sans">
+<body class="text-white font-sans">
 
-  <!-- Rocket Background Animation -->
-  <div class="rocket-bg">
-    <div class="rocket"></div>
-    <div class="rocket"></div>
-    <div class="rocket"></div>
-    <div class="rocket"></div>
-    <div class="rocket"></div>
-    <div class="rocket"></div>
-    <div class="rocket"></div>
-    <div class="rocket"></div>
-    <div class="rocket"></div>
-    <div class="rocket"></div>
-  </div>
+  <!-- Animated Star Background -->
+  <div class="stars"></div>
+  <div class="stars2"></div>
+  <div class="stars3"></div>
 
-  <header class="text-center py-8 bg-gray-800 bg-opacity-80">
-    <img src="https://iili.io/H7B4QYF.png" alt="Logo Jstore IPTV" class="mx-auto w-32 mb-4" />
-    <h1 class="text-3xl font-bold">JSTORE</h1>
+  <!-- Header -->
+  <header class="text-center py-12">
+    <img src="https://iili.io/H7B4QYF.png" alt="Logo Jstore IPTV" class="mx-auto w-28 mb-4" />
+    <h1 class="text-4xl font-extrabold text-pink-500 drop-shadow-lg tracking-wide">JSTORE IPTV</h1>
+    <p class="text-gray-300 text-lg mt-2">Lifetime IPTV • Tanpa Bil Bulanan</p>
   </header>
 
-  <main class="max-w-4xl mx-auto p-6 relative z-10">
-    <section class="mb-10">
-      <h2 class="text-2xl font-semibold mb-4">Selamat datang ke Jstore</h2>
+  <!-- Main Content -->
+  <main class="max-w-4xl mx-auto p-6 space-y-10">
+
+    <!-- Intro -->
+    <section class="glass-card p-6">
+      <h2 class="text-2xl font-bold text-pink-400 mb-2">💡 Apa Itu Jstore?</h2>
       <p class="text-gray-300">
-        Kami menawarkan servis IPTV lifetime. Hanya sekali bayar, tonton pelbagai siaran tanpa had melalui aplikasi OTT! Tiada bayaran bulanan, mudah digunakan, dan jimat. Dapatkan sekarang melalui Shopee Jstore!
+        Jstore ialah servis IPTV lifetime yang membolehkan anda menonton pelbagai saluran TV dari seluruh dunia melalui aplikasi OTT — tanpa bayaran bulanan. Sekali bayar, terus layan!
       </p>
-      <a href="https://shopee.com.my/jstoremy.os" target="_blank" 
-         class="block bg-red-600 hover:bg-red-700 text-white text-center py-3 px-6 rounded-xl transition transform hover:scale-105 active:scale-95 duration-300 ease-in-out mt-6">
+      <a href="https://shopee.com.my/yourstorelink" target="_blank"
+         class="mt-4 inline-block bg-pink-600 hover:bg-pink-700 text-white font-bold py-3 px-6 rounded-lg glow-btn transition duration-300">
         🛒 Beli Sekarang di Shopee
       </a>
     </section>
 
-    <section class="mb-10">
-      <h2 class="text-2xl font-semibold mb-4">Panduan Pengguna</h2>
-      <div class="space-y-4">
+    <!-- Panduan -->
+    <section class="glass-card p-6">
+      <h2 class="text-2xl font-bold text-blue-400 mb-4">📺 Panduan Pengguna</h2>
+      <div class="grid md:grid-cols-3 gap-4">
         <a href="https://www.youtube.com/watch?v=tw7bIGZ3s_4" target="_blank"
-          class="block bg-blue-600 hover:bg-blue-700 text-white text-center py-3 px-6 rounded-xl transition transform hover:scale-105 active:scale-95 duration-300 ease-in-out"
-          aria-label="Tonton video cara login OTT">
-          ➡️ Cara Login OTT
+          class="bg-blue-600 hover:bg-blue-700 text-white text-center py-3 px-4 rounded-lg transition transform hover:scale-105 active:scale-95">
+          ▶️ Cara Login OTT
         </a>
-
-        <a href="https://raw.githubusercontent.com/kiki4177/Channel-List/refs/heads/main/Channel%20list" target="_blank" 
-          class="block bg-green-600 hover:bg-green-700 text-white text-center py-3 px-6 rounded-xl transition transform hover:scale-105 active:scale-95 duration-300 ease-in-out"
-          aria-label="Lihat senarai saluran IPTV">
-          ➡️️ List Channel
+        <a href="https://raw.githubusercontent.com/kiki4177/Channel-List/refs/heads/main/Channel%20list" target="_blank"
+          class="bg-green-600 hover:bg-green-700 text-white text-center py-3 px-4 rounded-lg transition transform hover:scale-105 active:scale-95">
+          📄 Senarai Channel
         </a>
-
-        <a href="https://www.youtube.com/watch?v=zLvd0uZ1XRQ" target="_blank" 
-          class="block bg-purple-600 hover:bg-purple-700 text-white text-center py-3 px-6 rounded-xl transition transform hover:scale-105 active:scale-95 duration-300 ease-in-out"
-          aria-label="Tonton panduan cara set subtitle">
-          ➡️ Cara Set Subtitle
+        <a href="https://www.youtube.com/watch?v=zLvd0uZ1XRQ" target="_blank"
+          class="bg-purple-600 hover:bg-purple-700 text-white text-center py-3 px-4 rounded-lg transition transform hover:scale-105 active:scale-95">
+          📝 Cara Set Subtitle
         </a>
       </div>
     </section>
+
+    <!-- Kenapa Jstore -->
+    <section class="glass-card p-6">
+      <h2 class="text-2xl font-bold text-yellow-400 mb-2">✨ Kenapa Pilih Kami?</h2>
+      <ul class="list-disc pl-5 text-gray-300 space-y-1">
+        <li>Lifetime access tanpa caj bulanan</li>
+        <li>Kualiti HD & Full HD</li>
+        <li>Mudah guna melalui aplikasi OTT</li>
+        <li>Support mesra melalui WhatsApp</li>
+      </ul>
+    </section>
+
   </main>
 
-  <footer class="text-center text-sm text-gray-400 py-6 relative z-10">
-    &copy; 2025 Jstore
+  <!-- Footer -->
+  <footer class="text-center text-sm text-gray-400 py-6 mt-10">
+    &copy; 2025 Jstore IPTV. Semua Hak Terpelihara.
   </footer>
 
 </body>
