@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ms">
 <head>
@@ -6,17 +5,135 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Jstore menawarkan servis IPTV lifetime tanpa bayaran bulanan. Tonton pelbagai saluran dengan mudah melalui OTT app." />
   <link rel="icon" href="https://iili.io/H7B4QYF.png" type="image/png" />
-  <title>Jstore</title>
+  <title>Jstore - Premium IPTV</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600;700&display=swap');
+    
     body {
-      background: radial-gradient(ellipse at bottom, #0f172a, #000);
-      overflow-x: hidden;
+      font-family: 'Inter', sans-serif;
+      background: #000000;
+      background-image: 
+        radial-gradient(circle at 20% 30%, rgba(120, 119, 198, 0.15) 0%, transparent 20%),
+        radial-gradient(circle at 80% 70%, rgba(255, 119, 230, 0.15) 0%, transparent 20%),
+        radial-gradient(circle at 40% 80%, rgba(77, 171, 247, 0.1) 0%, transparent 20%);
       min-height: 100vh;
+      overflow-x: hidden;
+      color: #fff;
     }
 
-    /* Space Animation */
-    .space-bg {
+    h1, h2, h3, .font-tech {
+      font-family: 'Orbitron', sans-serif;
+    }
+
+    /* Grid Background Animation */
+    .grid-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+      background-size: 50px 50px;
+      mask-image: radial-gradient(circle at center, black 30%, transparent 70%);
+      -webkit-mask-image: radial-gradient(circle at center, black 30%, transparent 70%);
+      z-index: -2;
+      animation: gridMove 20s linear infinite;
+    }
+
+    @keyframes gridMove {
+      0% {
+        background-position: 0 0;
+      }
+      100% {
+        background-position: 50px 50px;
+      }
+    }
+
+    /* Neon Glow Effect */
+    .neon-text {
+      text-shadow: 
+        0 0 10px currentColor,
+        0 0 20px currentColor,
+        0 0 30px currentColor;
+    }
+
+    .neon-border {
+      position: relative;
+      border: 2px solid transparent;
+      background: linear-gradient(#000, #000) padding-box,
+                  linear-gradient(45deg, #ff00ff, #00ffff, #ffff00, #ff00ff) border-box;
+      background-size: 300% 300%;
+      animation: gradientShift 3s ease infinite;
+    }
+
+    @keyframes gradientShift {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+
+    /* Floating Elements */
+    .float-animation {
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(1deg); }
+    }
+
+    /* Holographic Card */
+    .holographic-card {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(15px);
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 
+        0 10px 30px rgba(0, 0, 0, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .holographic-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.7),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    }
+
+    .holographic-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+      transition: left 0.7s;
+    }
+
+    .holographic-card:hover::before {
+      left: 100%;
+    }
+
+    /* Digital Particles */
+    .digital-particle {
+      position: fixed;
+      color: #00ffff;
+      font-size: 18px;
+      font-weight: bold;
+      opacity: 0;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    /* Data Stream Animation */
+    .data-stream {
       position: fixed;
       top: 0;
       left: 0;
@@ -26,17 +143,18 @@
       overflow: hidden;
     }
 
-    /* Option 1: Floating Particles */
-    .particle {
+    .data-line {
       position: absolute;
-      background: rgba(255, 255, 255, 0.8);
-      border-radius: 50%;
-      animation: float linear infinite;
+      width: 2px;
+      height: 100px;
+      background: linear-gradient(to bottom, transparent, #00ffff, transparent);
+      opacity: 0.5;
+      animation: dataFlow 4s linear infinite;
     }
 
-    @keyframes float {
+    @keyframes dataFlow {
       0% {
-        transform: translateY(0) translateX(0);
+        transform: translateY(-100px);
         opacity: 0;
       }
       10% {
@@ -46,239 +164,407 @@
         opacity: 1;
       }
       100% {
-        transform: translateY(-100vh) translateX(20vw);
+        transform: translateY(100vh);
         opacity: 0;
       }
     }
 
-    /* Option 2: Nebula Effect */
-    .nebula {
+    /* Cyber Button */
+    .cyber-button {
+      background: linear-gradient(45deg, #ff00ff, #00ffff);
+      color: white;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 0;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      clip-path: polygon(
+        10px 0%, calc(100% - 10px) 0%, 
+        100% 10px, 100% calc(100% - 10px), 
+        calc(100% - 10px) 100%, 10px 100%, 
+        0% calc(100% - 10px), 0% 10px
+      );
+    }
+
+    .cyber-button:hover {
+      transform: translateY(-5px);
+      box-shadow: 
+        0 10px 20px rgba(255, 0, 255, 0.3),
+        0 0 30px rgba(0, 255, 255, 0.3);
+    }
+
+    .cyber-button::before {
+      content: '';
       position: absolute;
-      border-radius: 50%;
-      filter: blur(60px);
-      opacity: 0.3;
-      animation: pulse 15s ease-in-out infinite alternate;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+      transition: left 0.7s;
     }
 
-    @keyframes pulse {
-      0% {
-        transform: scale(1);
-      }
-      50% {
-        transform: scale(1.2);
-      }
-      100% {
-        transform: scale(1);
-      }
+    .cyber-button:hover::before {
+      left: 100%;
     }
 
-    /* Option 3: Shooting Stars */
-    .shooting-star {
-      position: absolute;
-      height: 2px;
-      background: linear-gradient(90deg, rgba(255,255,255,0), #fff);
-      animation: shooting 5s linear infinite;
-      transform: rotate(-45deg);
-      transform-origin: left;
-      filter: drop-shadow(0 0 6px rgba(255,255,255,0.7));
+    /* Scan Line Effect */
+    .scan-line {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(to right, transparent, rgba(0, 255, 255, 0.7), transparent);
+      z-index: 1000;
+      animation: scan 3s linear infinite;
+      pointer-events: none;
     }
 
-    @keyframes shooting {
-      0% {
-        transform: rotate(-45deg) translateX(0);
-        opacity: 1;
-      }
-      70% {
-        opacity: 1;
-      }
-      100% {
-        transform: rotate(-45deg) translateX(1000px);
-        opacity: 0;
-      }
+    @keyframes scan {
+      0% { top: 0%; }
+      100% { top: 100%; }
     }
 
-    /* Glass Effect Card */
-    .glass-card {
-      background: rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 1rem;
-    }
-
-    /* Glowing Button */
-    .glow-btn {
-      box-shadow: 0 0 20px rgba(255, 0, 128, 0.6), 0 0 30px rgba(255, 0, 128, 0.2);
+    /* Digital Noise Overlay */
+    .noise-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+      z-index: -1;
+      opacity: 0.03;
+      pointer-events: none;
     }
   </style>
 </head>
-<body class="text-white font-sans">
+<body class="relative">
 
-  <!-- Animated Space Background -->
-  <div class="space-bg" id="spaceBackground">
-    <!-- Particles will be generated by JavaScript -->
-  </div>
+  <!-- Background Elements -->
+  <div class="grid-bg"></div>
+  <div class="noise-overlay"></div>
+  <div class="data-stream" id="dataStream"></div>
+  <div class="scan-line"></div>
 
   <!-- Header -->
-  <header class="text-center py-12 relative z-10">
-    <img src="https://iili.io/H7B4QYF.png" alt="Logo Jstore IPTV" class="mx-auto w-28 mb-4" />
-    <h1 class="text-4xl font-extrabold text-pink-500 drop-shadow-lg tracking-wide">JSTORE</h1>
-    <p class="text-gray-300 text-lg mt-2">Premium OTT Provider</p>
+  <header class="relative z-10 pt-12 pb-8 px-6 text-center">
+    <div class="max-w-6xl mx-auto">
+      <div class="float-animation inline-block">
+        <div class="neon-border rounded-full p-4 mb-6">
+          <img src="https://iili.io/H7B4QYF.png" alt="Logo Jstore IPTV" class="w-32 h-32 object-contain" />
+        </div>
+      </div>
+      <h1 class="text-6xl md:text-7xl font-tech font-black mb-4 neon-text text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500">
+        JSTORE
+      </h1>
+      <p class="text-xl text-cyan-300 font-semibold tracking-wider">
+        <i class="fas fa-satellite-dish mr-2"></i>PREMIUM IPTV EXPERIENCE
+      </p>
+      <div class="mt-6 flex flex-wrap justify-center gap-4">
+        <div class="flex items-center text-sm text-gray-300">
+          <i class="fas fa-bolt text-yellow-400 mr-2"></i>ULTRA HD STREAMING
+        </div>
+        <div class="flex items-center text-sm text-gray-300">
+          <i class="fas fa-infinity text-green-400 mr-2"></i>LIFETIME ACCESS
+        </div>
+        <div class="flex items-center text-sm text-gray-300">
+          <i class="fas fa-globe text-blue-400 mr-2"></i>GLOBAL CHANNELS
+        </div>
+      </div>
+    </div>
   </header>
 
   <!-- Main Content -->
-  <main class="max-w-4xl mx-auto p-6 space-y-10 relative z-10">
+  <main class="max-w-6xl mx-auto px-4 py-8 relative z-10">
 
-    <!-- Intro -->
-    <section class="glass-card p-6">
-      <h2 class="text-2xl font-bold text-pink-400 mb-2">💡 Selamat datang ke Jstore</h2>
-      <p class="text-gray-300">
-        Sekiranya anda berminat menggunakan provider OTT kami, pembayaran boleh dibuat melalui platform shopee.
-        Akaun anda akan diaktifkan sebaik sahaja pembayaran disahkan.
-      </p>
-      <a href="https://shopee.com.my/jstore.shop" target="_blank"
-         class="mt-4 inline-block bg-pink-600 hover:bg-pink-700 text-white font-bold py-3 px-6 rounded-lg glow-btn transition duration-300">
-        🛒 Beli Sekarang di Shopee
-      </a>
+    <!-- Call to Action -->
+    <section class="mb-12">
+      <div class="holographic-card p-8 text-center">
+        <h2 class="text-3xl font-tech font-bold mb-4 text-white">
+          <i class="fas fa-rocket mr-3 text-cyan-400"></i>REVOLUTIONIZE YOUR ENTERTAINMENT
+        </h2>
+        <p class="text-gray-300 mb-6 text-lg">
+          Join thousands of satisfied users experiencing premium IPTV service. 
+          No monthly fees, just one-time payment for lifetime access.
+        </p>
+        <a href="https://shopee.com.my/jstore.shop" target="_blank"
+           class="cyber-button inline-block text-lg">
+          <i class="fas fa-shopping-cart mr-2"></i>GET ACCESS NOW
+        </a>
+        <div class="mt-6 flex justify-center">
+          <div class="text-sm text-gray-400">
+            <i class="fas fa-shield-alt text-green-400 mr-1"></i> Secure Payment • 
+            <i class="fas fa-bolt text-yellow-400 mx-2"></i> Instant Activation • 
+            <i class="fas fa-headset text-blue-400 ml-1"></i> 24/7 Support
+          </div>
+        </div>
+      </div>
     </section>
 
-    <!-- Panduan -->
-    <section class="glass-card p-6">
-      <h2 class="text-2xl font-bold text-blue-400 mb-4">📺 Panduan Pengguna</h2>
-      <div class="grid md:grid-cols-3 gap-4">
-        <a href="https://www.youtube.com/watch?v=tw7bIGZ3s_4" target="_blank"
-          class="bg-blue-600 hover:bg-blue-700 text-white text-center py-3 px-4 rounded-lg transition transform hover:scale-105 active:scale-95">
-          ▶️ Cara Login OTT
+    <!-- Features Grid -->
+    <section class="mb-12">
+      <h2 class="text-3xl font-tech font-bold mb-8 text-center neon-text text-cyan-300">
+        <i class="fas fa-star mr-3"></i>WHY CHOOSE JSTORE?
+      </h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="holographic-card p-6">
+          <div class="text-4xl text-cyan-400 mb-4">
+            <i class="fas fa-tv"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3 text-white">CRYSTAL CLEAR QUALITY</h3>
+          <p class="text-gray-300">Stream in Full HD & 4K quality with zero buffering and lag-free experience.</p>
+        </div>
+        <div class="holographic-card p-6">
+          <div class="text-4xl text-pink-400 mb-4">
+            <i class="fas fa-broadcast-tower"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3 text-white">MASSIVE CONTENT LIBRARY</h3>
+          <p class="text-gray-300">Access thousands of channels, movies, series, and sports from around the world.</p>
+        </div>
+        <div class="holographic-card p-6">
+          <div class="text-4xl text-purple-400 mb-4">
+            <i class="fas fa-user-shield"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3 text-white">PREMIUM SUPPORT</h3>
+          <p class="text-gray-300">24/7 customer support with quick response time and dedicated assistance.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Guides Section -->
+    <section class="mb-12">
+      <h2 class="text-3xl font-tech font-bold mb-8 text-center neon-text text-pink-300">
+        <i class="fas fa-book-open mr-3"></i>QUICK START GUIDES
+      </h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <a href="https://www.youtube.com/watch?v=tw7bIGZ3s_4" target="_blank" 
+           class="holographic-card p-6 block hover:no-underline group">
+          <div class="text-center mb-4">
+            <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 mb-3">
+              <i class="fas fa-sign-in-alt text-2xl"></i>
+            </div>
+          </div>
+          <h3 class="text-xl font-bold mb-3 text-white group-hover:text-cyan-300">SETUP & LOGIN</h3>
+          <p class="text-gray-300 mb-4">Learn how to set up your device and login to start streaming.</p>
+          <div class="text-cyan-400 flex items-center">
+            Watch Tutorial <i class="fas fa-arrow-right ml-2 group-hover:ml-4 transition-all"></i>
+          </div>
         </a>
+        
         <a href="https://raw.githubusercontent.com/kiki4177/Channel-List/refs/heads/main/Channel%20list" target="_blank"
-          class="bg-green-600 hover:bg-green-700 text-white text-center py-3 px-4 rounded-lg transition transform hover:scale-105 active:scale-95">
-          📄 Senarai Channel
+           class="holographic-card p-6 block hover:no-underline group">
+          <div class="text-center mb-4">
+            <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-r from-green-500 to-emerald-600 mb-3">
+              <i class="fas fa-list-alt text-2xl"></i>
+            </div>
+          </div>
+          <h3 class="text-xl font-bold mb-3 text-white group-hover:text-green-300">CHANNEL LIST</h3>
+          <p class="text-gray-300 mb-4">Browse our extensive collection of available channels worldwide.</p>
+          <div class="text-green-400 flex items-center">
+            View List <i class="fas fa-external-link-alt ml-2 group-hover:ml-4 transition-all"></i>
+          </div>
         </a>
+        
         <a href="https://www.youtube.com/watch?v=zLvd0uZ1XRQ" target="_blank"
-          class="bg-purple-600 hover:bg-purple-700 text-white text-center py-3 px-4 rounded-lg transition transform hover:scale-105 active:scale-95">
-          📝 Cara Set Subtitle
+           class="holographic-card p-6 block hover:no-underline group">
+          <div class="text-center mb-4">
+            <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-r from-purple-500 to-pink-600 mb-3">
+              <i class="fas fa-closed-captioning text-2xl"></i>
+            </div>
+          </div>
+          <h3 class="text-xl font-bold mb-3 text-white group-hover:text-purple-300">CUSTOMIZATION</h3>
+          <p class="text-gray-300 mb-4">Learn how to customize subtitles, audio, and other settings.</p>
+          <div class="text-purple-400 flex items-center">
+            Watch Guide <i class="fas fa-play-circle ml-2 group-hover:ml-4 transition-all"></i>
+          </div>
         </a>
       </div>
     </section>
 
-    <!-- Kenapa Jstore -->
-    <section class="glass-card p-6">
-      <h2 class="text-2xl font-bold text-yellow-400 mb-2">✨ Kenapa Pilih Kami?</h2>
-      <ul class="list-disc pl-5 text-gray-300 space-y-1">
-        <li>Kualiti HD & Full HD</li>
-        <li>Mudah digunakan</li>
-        <li>Customer service 24/7</li>
-      </ul>
+    <!-- Reseller Program -->
+    <section class="mb-12">
+      <div class="holographic-card p-8 relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-pink-500/20 to-cyan-500/20 rounded-full -translate-y-32 translate-x-16"></div>
+        <div class="relative z-10">
+          <h2 class="text-3xl font-tech font-bold mb-4 text-white">
+            <i class="fas fa-crown text-yellow-400 mr-3"></i>BECOME A RESELLER
+          </h2>
+          <p class="text-gray-300 mb-6 text-lg">
+            Unlock earning potential with our premium reseller program. Get your own panel, 
+            create users, and manage everything with our advanced system.
+          </p>
+          <div class="grid md:grid-cols-3 gap-4 mb-6">
+            <div class="flex items-start">
+              <i class="fas fa-check-circle text-green-400 mt-1 mr-3"></i>
+              <span class="text-gray-300">Full Admin Panel Access</span>
+            </div>
+            <div class="flex items-start">
+              <i class="fas fa-check-circle text-green-400 mt-1 mr-3"></i>
+              <span class="text-gray-300">User Management System</span>
+            </div>
+            <div class="flex items-start">
+              <i class="fas fa-check-circle text-green-400 mt-1 mr-3"></i>
+              <span class="text-gray-300">Real-time Analytics</span>
+            </div>
+          </div>
+          <a href="https://wa.link/qjbe5e" target="_blank"
+             class="cyber-button inline-block bg-gradient-to-r from-yellow-500 to-orange-500">
+            <i class="fas fa-chart-line mr-2"></i>JOIN RESELLER PROGRAM
+          </a>
+        </div>
+      </div>
     </section>
-    
-   <!-- JOIN US -->
-<section class="glass-card p-6">
-  <h2 class="text-2xl font-bold text-pink-400 mb-2">Sertai Kami!</h2>
 
-  <p class="text-gray-300 mb-4">
-    JStore kini membuka peluang kepada anda yang berminat untuk menjadi reseller OTT.  
-    Tak perlu modal besar, sistem senang.
-  </p>
-
-  <ul class="list-disc pl-5 text-gray-300 space-y-1 mb-4">
-    <li>Panel reseller disediakan</li>
-    <li>Boleh create user sendiri</li>
-    <li>Sistem senang digunakan</li>
-  </ul>
-
-  <a href="https://wa.link/qjbe5e" target="_blank"
-     class="inline-block bg-pink-600 hover:bg-pink-700 text-white font-bold py-3 px-6 rounded-lg glow-btn transition duration-300">
-    Daftar Sekarang
-  </a>
-</section>
-
+    <!-- Stats Section -->
+    <section class="mb-12">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="holographic-card p-6 text-center">
+          <div class="text-3xl font-tech font-bold text-cyan-400 mb-2">5K+</div>
+          <div class="text-gray-300 text-sm">ACTIVE USERS</div>
+        </div>
+        <div class="holographic-card p-6 text-center">
+          <div class="text-3xl font-tech font-bold text-pink-400 mb-2">24/7</div>
+          <div class="text-gray-300 text-sm">SUPPORT</div>
+        </div>
+        <div class="holographic-card p-6 text-center">
+          <div class="text-3xl font-tech font-bold text-purple-400 mb-2">10K+</div>
+          <div class="text-gray-300 text-sm">CHANNELS</div>
+        </div>
+        <div class="holographic-card p-6 text-center">
+          <div class="text-3xl font-tech font-bold text-green-400 mb-2">99%</div>
+          <div class="text-gray-300 text-sm">UPTIME</div>
+        </div>
+      </div>
+    </section>
 
   </main>
 
   <!-- Footer -->
-  <footer class="text-center text-sm text-gray-400 py-6 mt-10 relative z-10">
-    &copy; 2025 Jstore
+  <footer class="py-8 px-6 text-center relative z-10">
+    <div class="max-w-6xl mx-auto">
+      <div class="flex flex-col md:flex-row justify-between items-center mb-6">
+        <div class="flex items-center mb-4 md:mb-0">
+          <div class="neon-border rounded-full p-2 mr-4">
+            <img src="https://iili.io/H7B4QYF.png" alt="Logo" class="w-12 h-12" />
+          </div>
+          <div class="text-left">
+            <div class="font-tech font-bold text-xl">JSTORE IPTV</div>
+            <div class="text-gray-400 text-sm">Premium Streaming Experience</div>
+          </div>
+        </div>
+        <div class="flex space-x-6">
+          <a href="https://shopee.com.my/jstore.shop" target="_blank" 
+             class="text-gray-400 hover:text-cyan-400 transition-colors">
+            <i class="fab fa-shopify text-2xl"></i>
+          </a>
+          <a href="https://wa.link/qjbe5e" target="_blank" 
+             class="text-gray-400 hover:text-green-400 transition-colors">
+            <i class="fab fa-whatsapp text-2xl"></i>
+          </a>
+        </div>
+      </div>
+      <div class="border-t border-gray-800 pt-6">
+        <p class="text-gray-500 text-sm">
+          &copy; 2025 JSTORE IPTV. All rights reserved. | Premium OTT Provider
+        </p>
+      </div>
+    </div>
   </footer>
 
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      const spaceBg = document.getElementById('spaceBackground');
+      // Create data stream lines
+      const dataStream = document.getElementById('dataStream');
       
-      // Create particles (Option 1)
-      for (let i = 0; i < 100; i++) {
+      for (let i = 0; i < 15; i++) {
+        const line = document.createElement('div');
+        line.classList.add('data-line');
+        
+        const left = Math.random() * 100;
+        const delay = Math.random() * 5;
+        const duration = Math.random() * 3 + 2;
+        
+        line.style.left = `${left}%`;
+        line.style.animationDelay = `${delay}s`;
+        line.style.animationDuration = `${duration}s`;
+        
+        dataStream.appendChild(line);
+      }
+
+      // Create digital particles
+      function createDigitalParticle() {
         const particle = document.createElement('div');
-        particle.classList.add('particle');
+        particle.classList.add('digital-particle');
+        particle.textContent = Math.random() > 0.5 ? '0' : '1';
         
-        // Random properties
-        const size = Math.random() * 3 + 1;
-        const posX = Math.random() * 100;
-        const posY = Math.random() * 100;
-        const delay = Math.random() * 15;
-        const duration = Math.random() * 30 + 20;
+        const startX = Math.random() * 100;
+        const endX = startX + (Math.random() * 40 - 20);
         
-        particle.style.width = `${size}px`;
-        particle.style.height = `${size}px`;
-        particle.style.left = `${posX}vw`;
-        particle.style.top = `${posY}vh`;
-        particle.style.animationDelay = `${delay}s`;
-        particle.style.animationDuration = `${duration}s`;
+        particle.style.left = `${startX}%`;
+        particle.style.top = `${Math.random() * 100}%`;
+        particle.style.fontSize = `${Math.random() * 10 + 12}px`;
         
-        spaceBg.appendChild(particle);
+        document.body.appendChild(particle);
+        
+        // Animate particle
+        const animation = particle.animate([
+          { 
+            transform: `translateY(0px) translateX(0px)`, 
+            opacity: 0 
+          },
+          { 
+            transform: `translateY(-100px) translateX(${endX - startX}px)`, 
+            opacity: 0.7 
+          },
+          { 
+            transform: `translateY(-200px) translateX(${(endX - startX) * 2}px)`, 
+            opacity: 0 
+          }
+        ], {
+          duration: Math.random() * 2000 + 2000,
+          easing: 'cubic-bezier(0.215, 0.610, 0.355, 1)'
+        });
+        
+        animation.onfinish = () => {
+          particle.remove();
+        };
       }
       
-      // Create nebula (Option 2)
-      for (let i = 0; i < 5; i++) {
-        const nebula = document.createElement('div');
-        nebula.classList.add('nebula');
-        
-        const colors = ['#ff00ff', '#00ffff', '#ffff00', '#ff9900'];
-        const color = colors[Math.floor(Math.random() * colors.length)];
-        const size = Math.random() * 300 + 100;
-        const posX = Math.random() * 100;
-        const posY = Math.random() * 100;
-        const delay = Math.random() * 10;
-        const duration = Math.random() * 20 + 10;
-        
-        nebula.style.width = `${size}px`;
-        nebula.style.height = `${size}px`;
-        nebula.style.left = `${posX}vw`;
-        nebula.style.top = `${posY}vh`;
-        nebula.style.backgroundColor = color;
-        nebula.style.animationDelay = `${delay}s`;
-        nebula.style.animationDuration = `${duration}s`;
-        
-        spaceBg.appendChild(nebula);
+      // Create initial particles
+      for (let i = 0; i < 20; i++) {
+        setTimeout(() => createDigitalParticle(), i * 100);
       }
       
-      // Create shooting stars (Option 3)
-      function createShootingStar() {
-        const star = document.createElement('div');
-        star.classList.add('shooting-star');
-        
-        const posX = Math.random() * 100;
-        const posY = Math.random() * 100;
-        const width = Math.random() * 100 + 50;
-        const delay = Math.random() * 15;
-        
-        star.style.left = `${posX}vw`;
-        star.style.top = `${posY}vh`;
-        star.style.width = `${width}px`;
-        star.style.animationDelay = `${delay}s`;
-        
-        spaceBg.appendChild(star);
-        
-        // Remove star after animation completes
-        setTimeout(() => {
-          star.remove();
-        }, 5000);
-      }
+      // Create particles periodically
+      setInterval(createDigitalParticle, 300);
       
-      // Create initial shooting stars
-      for (let i = 0; i < 5; i++) {
-        createShootingStar();
-      }
-      
-      // Continue creating shooting stars periodically
-      setInterval(createShootingStar, 2000);
+      // Add hover effect to cards
+      const cards = document.querySelectorAll('.holographic-card');
+      cards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          
+          const centerX = rect.width / 2;
+          const centerY = rect.height / 2;
+          
+          const angleY = (x - centerX) * 0.01;
+          const angleX = (centerY - y) * 0.01;
+          
+          card.style.transform = `perspective(1000px) rotateX(${angleX}deg) rotateY(${angleY}deg) translateY(-10px)`;
+        });
+        
+        card.addEventListener('mouseleave', () => {
+          card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0)';
+        });
+      });
     });
   </script>
 </body>
