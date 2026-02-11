@@ -1,160 +1,42 @@
 <!DOCTYPE html>
-<html lang="ms">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Jstore menawarkan servis IPTV lifetime tanpa bayaran bulanan. Tonton pelbagai saluran dengan mudah melalui OTT app." />
+  <meta name="description" content="Jstore offers lifetime IPTV service with no monthly fees. Watch various channels easily through OTT app." />
   <link rel="icon" href="https://iili.io/H7B4QYF.png" type="image/png" />
-  <title>Jstore - Premium IPTV</title>
+  <title>Jstore - Premium IPTV Provider</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600;700&display=swap');
-    
     body {
-      font-family: 'Inter', sans-serif;
-      background: #000000;
-      background-image: 
-        radial-gradient(circle at 20% 30%, rgba(120, 119, 198, 0.15) 0%, transparent 20%),
-        radial-gradient(circle at 80% 70%, rgba(255, 119, 230, 0.15) 0%, transparent 20%),
-        radial-gradient(circle at 40% 80%, rgba(77, 171, 247, 0.1) 0%, transparent 20%);
-      min-height: 100vh;
+      background: radial-gradient(ellipse at bottom, #0f172a, #000);
       overflow-x: hidden;
-      color: #fff;
+      min-height: 100vh;
     }
 
-    h1, h2, h3, .font-tech {
-      font-family: 'Orbitron', sans-serif;
-    }
-
-    /* Grid Background Animation */
-    .grid-bg {
+    /* Space Animation */
+    .space-bg {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background-image: 
-        linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
-      background-size: 50px 50px;
-      mask-image: radial-gradient(circle at center, black 30%, transparent 70%);
-      -webkit-mask-image: radial-gradient(circle at center, black 30%, transparent 70%);
-      z-index: -2;
-      animation: gridMove 20s linear infinite;
+      z-index: -1;
+      overflow: hidden;
     }
 
-    @keyframes gridMove {
-      0% {
-        background-position: 0 0;
-      }
-      100% {
-        background-position: 50px 50px;
-      }
-    }
-
-    /* Neon Glow Effect */
-    .neon-text {
-      text-shadow: 
-        0 0 10px currentColor,
-        0 0 20px currentColor,
-        0 0 30px currentColor;
-    }
-
-    .neon-border {
-      position: relative;
-      border: 2px solid transparent;
-      background: linear-gradient(#000, #000) padding-box,
-                  linear-gradient(45deg, #ff00ff, #00ffff, #ffff00, #ff00ff) border-box;
-      background-size: 300% 300%;
-      animation: gradientShift 3s ease infinite;
-    }
-
-    @keyframes gradientShift {
-      0%, 100% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-    }
-
-    /* Floating Elements */
-    .float-animation {
-      animation: float 6s ease-in-out infinite;
+    /* Floating Particles */
+    .particle {
+      position: absolute;
+      background: rgba(255, 255, 255, 0.8);
+      border-radius: 50%;
+      animation: float linear infinite;
     }
 
     @keyframes float {
-      0%, 100% { transform: translateY(0px) rotate(0deg); }
-      50% { transform: translateY(-20px) rotate(1deg); }
-    }
-
-    /* Holographic Card */
-    .holographic-card {
-      background: rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(15px);
-      border-radius: 20px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      box-shadow: 
-        0 10px 30px rgba(0, 0, 0, 0.5),
-        inset 0 1px 0 rgba(255, 255, 255, 0.1);
-      position: relative;
-      overflow: hidden;
-      transition: all 0.3s ease;
-    }
-
-    .holographic-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 
-        0 20px 40px rgba(0, 0, 0, 0.7),
-        inset 0 1px 0 rgba(255, 255, 255, 0.2);
-    }
-
-    .holographic-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-      transition: left 0.7s;
-    }
-
-    .holographic-card:hover::before {
-      left: 100%;
-    }
-
-    /* Digital Particles */
-    .digital-particle {
-      position: fixed;
-      color: #00ffff;
-      font-size: 18px;
-      font-weight: bold;
-      opacity: 0;
-      z-index: -1;
-      pointer-events: none;
-    }
-
-    /* Data Stream Animation */
-    .data-stream {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-      overflow: hidden;
-    }
-
-    .data-line {
-      position: absolute;
-      width: 2px;
-      height: 100px;
-      background: linear-gradient(to bottom, transparent, #00ffff, transparent);
-      opacity: 0.5;
-      animation: dataFlow 4s linear infinite;
-    }
-
-    @keyframes dataFlow {
       0% {
-        transform: translateY(-100px);
+        transform: translateY(0) translateX(0);
         opacity: 0;
       }
       10% {
@@ -164,277 +46,305 @@
         opacity: 1;
       }
       100% {
-        transform: translateY(100vh);
+        transform: translateY(-100vh) translateX(20vw);
         opacity: 0;
       }
     }
 
-    /* Cyber Button */
-    .cyber-button {
-      background: linear-gradient(45deg, #ff00ff, #00ffff);
-      color: white;
-      font-weight: bold;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      padding: 15px 30px;
-      border: none;
-      border-radius: 0;
-      position: relative;
-      overflow: hidden;
-      transition: all 0.3s ease;
-      clip-path: polygon(
-        10px 0%, calc(100% - 10px) 0%, 
-        100% 10px, 100% calc(100% - 10px), 
-        calc(100% - 10px) 100%, 10px 100%, 
-        0% calc(100% - 10px), 0% 10px
-      );
-    }
-
-    .cyber-button:hover {
-      transform: translateY(-5px);
-      box-shadow: 
-        0 10px 20px rgba(255, 0, 255, 0.3),
-        0 0 30px rgba(0, 255, 255, 0.3);
-    }
-
-    .cyber-button::before {
-      content: '';
+    /* Nebula Effect */
+    .nebula {
       position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
-      transition: left 0.7s;
+      border-radius: 50%;
+      filter: blur(60px);
+      opacity: 0.2;
+      animation: pulse 15s ease-in-out infinite alternate;
     }
 
-    .cyber-button:hover::before {
-      left: 100%;
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.2);
+      }
+      100% {
+        transform: scale(1);
+      }
     }
 
-    /* Scan Line Effect */
-    .scan-line {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 4px;
-      background: linear-gradient(to right, transparent, rgba(0, 255, 255, 0.7), transparent);
-      z-index: 1000;
-      animation: scan 3s linear infinite;
-      pointer-events: none;
+    /* Glass Effect Card */
+    .glass-card {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 1rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .glass-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+      border-color: rgba(255, 255, 255, 0.2);
     }
 
-    @keyframes scan {
-      0% { top: 0%; }
-      100% { top: 100%; }
+    /* Glowing Button */
+    .glow-btn {
+      box-shadow: 0 0 20px rgba(255, 0, 128, 0.6), 0 0 30px rgba(255, 0, 128, 0.2);
+      transition: all 0.3s ease;
+    }
+    
+    .glow-btn:hover {
+      box-shadow: 0 0 25px rgba(255, 0, 128, 0.8), 0 0 40px rgba(255, 0, 128, 0.4);
+      transform: translateY(-2px);
     }
 
-    /* Digital Noise Overlay */
-    .noise-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
-      z-index: -1;
-      opacity: 0.03;
-      pointer-events: none;
+    /* Feature Icons */
+    .feature-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      margin-bottom: 15px;
+      font-size: 24px;
+    }
+    
+    /* Floating animation for logo */
+    @keyframes float-logo {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+    
+    .floating-logo {
+      animation: float-logo 3s ease-in-out infinite;
+    }
+    
+    /* Testimonial card */
+    .testimonial-card {
+      background: rgba(255, 255, 255, 0.05);
+      border-left: 4px solid #ec4899;
     }
   </style>
 </head>
-<body class="relative">
+<body class="text-white font-sans">
 
-  <!-- Background Elements -->
-  <div class="grid-bg"></div>
-  <div class="noise-overlay"></div>
-  <div class="data-stream" id="dataStream"></div>
-  <div class="scan-line"></div>
+  <!-- Animated Space Background -->
+  <div class="space-bg" id="spaceBackground">
+    <!-- Particles will be generated by JavaScript -->
+  </div>
 
   <!-- Header -->
-  <header class="relative z-10 pt-12 pb-8 px-6 text-center">
-    <div class="max-w-6xl mx-auto">
-      <div class="float-animation inline-block">
-        <div class="neon-border rounded-full p-4 mb-6">
-          <img src="https://iili.io/H7B4QYF.png" alt="Logo Jstore IPTV" class="w-32 h-32 object-contain" />
-        </div>
-      </div>
-      <h1 class="text-6xl md:text-7xl font-tech font-black mb-4 neon-text text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500">
-        JSTORE
-      </h1>
-      <p class="text-xl text-cyan-300 font-semibold tracking-wider">
-        <i class="fas fa-satellite-dish mr-2"></i>PREMIUM STREAMING EXPERIENCE
-      </p>
-      <div class="mt-6 flex flex-wrap justify-center gap-4">
-        <div class="flex items-center text-sm text-gray-300">
-          <i class="fas fa-bolt text-yellow-400 mr-2"></i>HIGH QUALITY STREAMING
-        </div>
-        <div class="flex items-center text-sm text-gray-300">
-          <i class="fas fa-infinity text-green-400 mr-2"></i>LIFETIME ACCESS
-        </div>
-      </div>
-    </div>
+  <header class="text-center py-12 relative z-10">
+    <img src="https://iili.io/H7B4QYF.png" alt="Jstore IPTV Logo" class="mx-auto w-28 mb-4 floating-logo" />
+    <h1 class="text-4xl md:text-5xl font-extrabold text-pink-500 drop-shadow-lg tracking-wide">JSTORE</h1>
+    <p class="text-gray-300 text-lg mt-2">Premium OTT Streaming Service</p>
   </header>
 
   <!-- Main Content -->
-  <main class="max-w-6xl mx-auto px-4 py-8 relative z-10">
+  <main class="max-w-6xl mx-auto p-6 space-y-12 relative z-10">
 
-    <!-- Call to Action -->
-    <section class="mb-12">
-      <div class="holographic-card p-8 text-center">
-        <h2 class="text-3xl font-tech font-bold mb-4 text-white">
-          <i class="fas fa-rocket mr-3 text-cyan-400"></i>REVOLUTIONIZE YOUR ENTERTAINMENT
-        </h2>
-        <p class="text-gray-300 mb-6 text-lg">
-          Join thousands of satisfied users experiencing premium streaming service. 
-        </p>
+    <!-- Intro -->
+    <section class="glass-card p-6 md:p-8">
+      <h2 class="text-2xl font-bold text-pink-400 mb-2 flex items-center gap-2">
+        <i class="fas fa-rocket"></i> Welcome to Jstore IPTV
+      </h2>
+      <p class="text-gray-300 mb-6">
+        If you're interested in using our OTT provider service, payment can be made through the Shopee platform. 
+        Your account will be activated immediately after payment confirmation.
+      </p>
+      <div class="flex flex-wrap gap-4">
         <a href="https://shopee.com.my/jstore.shop" target="_blank"
-           class="cyber-button inline-block text-lg">
-          <i class="fas fa-shopping-cart mr-2"></i>GET ACCESS NOW
+           class="bg-pink-600 hover:bg-pink-700 text-white font-bold py-3 px-8 rounded-lg glow-btn transition duration-300 flex items-center gap-2">
+          <i class="fas fa-shopping-cart"></i> Buy Now on Shopee
         </a>
-        <div class="mt-6 flex justify-center">
-          <div class="text-sm text-gray-400">
-            <i class="fas fa-shield-alt text-green-400 mr-1"></i> Secure Payment • 
-            <i class="fas fa-bolt text-yellow-400 mx-2"></i> Instant Activation • 
-            <i class="fas fa-headset text-blue-400 ml-1"></i> 24/7 Support
-          </div>
-        </div>
       </div>
     </section>
 
-    <!-- Features Grid -->
-    <section class="mb-12">
-      <h2 class="text-3xl font-tech font-bold mb-8 text-center neon-text text-cyan-300">
-        <i class="fas fa-star mr-3"></i>WHY CHOOSE JSTORE?
+    <!-- User Guide -->
+    <section class="glass-card p-6 md:p-8">
+      <h2 class="text-2xl font-bold text-blue-400 mb-6 flex items-center gap-2">
+        <i class="fas fa-tv"></i> User Guides
       </h2>
       <div class="grid md:grid-cols-3 gap-6">
-        <div class="holographic-card p-6">
-          <div class="text-4xl text-cyan-400 mb-4">
-            <i class="fas fa-tv"></i>
+        <a href="https://www.youtube.com/watch?v=tw7bIGZ3s_4" target="_blank"
+          class="bg-gradient-to-r from-blue-700 to-blue-900 hover:from-blue-600 hover:to-blue-800 text-white p-6 rounded-xl transition transform hover:scale-105 active:scale-95 flex flex-col items-center text-center">
+          <div class="feature-icon">
+            <i class="fas fa-sign-in-alt"></i>
           </div>
-          <h3 class="text-xl font-bold mb-3 text-white">HIGH QUALITY STREAM</h3>
-          <p class="text-gray-300">Stream in FHD & HD quality with less buffering.</p>
-        </div>
-        <div class="holographic-card p-6">
-          <div class="text-4xl text-pink-400 mb-4">
-            <i class="fas fa-broadcast-tower"></i>
-          </div>
-          <h3 class="text-xl font-bold mb-3 text-white">MASSIVE CONTENT LIBRARY</h3>
-          <p class="text-gray-300">Access premium contents in one platform.</p>
-        </div>
-        <div class="holographic-card p-6">
-          <div class="text-4xl text-purple-400 mb-4">
-            <i class="fas fa-user-shield"></i>
-          </div>
-          <h3 class="text-xl font-bold mb-3 text-white">PREMIUM SUPPORT</h3>
-          <p class="text-gray-300">24/7 customer support with quick response time and dedicated assistance.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Guides Section -->
-    <section class="mb-12">
-      <h2 class="text-3xl font-tech font-bold mb-8 text-center neon-text text-pink-300">
-        <i class="fas fa-book-open mr-3"></i>QUICK START GUIDES
-      </h2>
-      <div class="grid md:grid-cols-3 gap-6">
-        <a href="https://www.youtube.com/watch?v=tw7bIGZ3s_4" target="_blank" 
-           class="holographic-card p-6 block hover:no-underline group">
-          <div class="text-center mb-4">
-            <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 mb-3">
-              <i class="fas fa-sign-in-alt text-2xl"></i>
-            </div>
-          </div>
-          <h3 class="text-xl font-bold mb-3 text-white group-hover:text-cyan-300">SETUP & LOGIN</h3>
-          <p class="text-gray-300 mb-4">Learn how to set up your device and login to start streaming.</p>
-          <div class="text-cyan-400 flex items-center">
-            Watch Tutorial <i class="fas fa-arrow-right ml-2 group-hover:ml-4 transition-all"></i>
-          </div>
+          <h3 class="font-bold text-lg mb-2">OTT Login Guide</h3>
+          <p class="text-gray-300 text-sm">Step-by-step tutorial on how to login to your OTT account</p>
         </a>
-        
         <a href="https://raw.githubusercontent.com/kiki4177/Channel-List/refs/heads/main/Channel%20list" target="_blank"
-           class="holographic-card p-6 block hover:no-underline group">
-          <div class="text-center mb-4">
-            <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-r from-green-500 to-emerald-600 mb-3">
-              <i class="fas fa-list-alt text-2xl"></i>
-            </div>
+          class="bg-gradient-to-r from-green-700 to-green-900 hover:from-green-600 hover:to-green-800 text-white p-6 rounded-xl transition transform hover:scale-105 active:scale-95 flex flex-col items-center text-center">
+          <div class="feature-icon">
+            <i class="fas fa-list"></i>
           </div>
-          <h3 class="text-xl font-bold mb-3 text-white group-hover:text-green-300">CHANNEL LIST</h3>
-          <p class="text-gray-300 mb-4">Browse our extensive collection of available channels.</p>
-          <div class="text-green-400 flex items-center">
-            View List <i class="fas fa-external-link-alt ml-2 group-hover:ml-4 transition-all"></i>
-          </div>
+          <h3 class="font-bold text-lg mb-2">Channel List</h3>
+          <p class="text-gray-300 text-sm">Complete list of all available channels and categories</p>
         </a>
-        
         <a href="https://www.youtube.com/watch?v=zLvd0uZ1XRQ" target="_blank"
-           class="holographic-card p-6 block hover:no-underline group">
-          <div class="text-center mb-4">
-            <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-r from-purple-500 to-pink-600 mb-3">
-              <i class="fas fa-closed-captioning text-2xl"></i>
-            </div>
+          class="bg-gradient-to-r from-purple-700 to-purple-900 hover:from-purple-600 hover:to-purple-800 text-white p-6 rounded-xl transition transform hover:scale-105 active:scale-95 flex flex-col items-center text-center">
+          <div class="feature-icon">
+            <i class="fas fa-closed-captioning"></i>
           </div>
-          <h3 class="text-xl font-bold mb-3 text-white group-hover:text-purple-300">CUSTOMIZATION</h3>
-          <p class="text-gray-300 mb-4">Learn how to customize subtitles, audio, and other settings.</p>
-          <div class="text-purple-400 flex items-center">
-            Watch Guide <i class="fas fa-play-circle ml-2 group-hover:ml-4 transition-all"></i>
-          </div>
+          <h3 class="font-bold text-lg mb-2">Subtitle Setup</h3>
+          <p class="text-gray-300 text-sm">How to configure subtitles for your preferred language</p>
         </a>
       </div>
     </section>
 
-    <!-- Reseller Program -->
-    <section class="mb-12">
-      <div class="holographic-card p-8 relative overflow-hidden">
-        <div class="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-pink-500/20 to-cyan-500/20 rounded-full -translate-y-32 translate-x-16"></div>
-        <div class="relative z-10">
-          <h2 class="text-3xl font-tech font-bold mb-4 text-white">
-            <i class="fas fa-crown text-yellow-400 mr-3"></i>BECOME A RESELLER
-          </h2>
-          <p class="text-gray-300 mb-6 text-lg">
-            Unlock earning potential with our premium reseller program. Get your own panel, 
-            create users, and manage everything with our system.
-          </p>
-          <div class="grid md:grid-cols-3 gap-4 mb-6">
-            <div class="flex items-start">
-              <i class="fas fa-check-circle text-green-400 mt-1 mr-3"></i>
-              <span class="text-gray-300">Full Reseller Panel Access</span>
-            </div>
-            <div class="flex items-start">
-              <i class="fas fa-check-circle text-green-400 mt-1 mr-3"></i>
-              <span class="text-gray-300">User Management System</span>
-            </div>
-            <div class="flex items-start">
-              <i class="fas fa-check-circle text-green-400 mt-1 mr-3"></i>
-              <span class="text-gray-300">Real-time Analytics</span>
-            </div>
+    <!-- Why Choose Us -->
+    <section class="glass-card p-6 md:p-8">
+      <h2 class="text-2xl font-bold text-yellow-400 mb-6 flex items-center gap-2">
+        <i class="fas fa-star"></i> Why Choose Jstore?
+      </h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="p-5 bg-gray-900/30 rounded-xl">
+          <div class="feature-icon bg-yellow-900/30 text-yellow-400">
+            <i class="fas fa-tv"></i> <!-- Changed from fas fa-hd to fas fa-tv -->
           </div>
-          <a href="https://wa.link/qjbe5e" target="_blank"
-             class="cyber-button inline-block bg-gradient-to-r from-yellow-500 to-orange-500">
-            <i class="fas fa-chart-line mr-2"></i>JOIN RESELLER PROGRAM
-          </a>
+          <h3 class="font-bold text-lg mb-2">HD & Full HD Quality</h3>
+          <p class="text-gray-300 text-sm">Crystal clear streaming quality with minimal buffering and superior picture quality.</p>
+        </div>
+        <div class="p-5 bg-gray-900/30 rounded-xl">
+          <div class="feature-icon bg-blue-900/30 text-blue-400">
+            <i class="fas fa-user-friends"></i>
+          </div>
+          <h3 class="font-bold text-lg mb-2">Easy to Use</h3>
+          <p class="text-gray-300 text-sm">User-friendly interface that works on all android devices.</p>
+        </div>
+        <div class="p-5 bg-gray-900/30 rounded-xl">
+          <div class="feature-icon bg-green-900/30 text-green-400">
+            <i class="fas fa-headset"></i>
+          </div>
+          <h3 class="font-bold text-lg mb-2">24/7 Customer Support</h3>
+          <p class="text-gray-300 text-sm">Round-the-clock assistance through WhatsApp and Telegram for any issues.</p>
+        </div>
+      </div>
+      <div class="mt-8 grid md:grid-cols-2 gap-6">
+        <div class="p-5 bg-gray-900/30 rounded-xl">
+          <h3 class="font-bold text-lg mb-3 text-pink-400">Supported Devices</h3>
+          <div class="flex flex-wrap gap-3">
+            <span class="bg-gray-800 px-3 py-1 rounded-full text-sm">Android TV</span>
+            <span class="bg-gray-800 px-3 py-1 rounded-full text-sm">Android Phone</span>
+            <span class="bg-gray-800 px-3 py-1 rounded-full text-sm">Android Box</span>
+            <span class="bg-gray-800 px-3 py-1 rounded-full text-sm">Android Stick</span>
+          </div>
+        </div>
+        <div class="p-5 bg-gray-900/30 rounded-xl">
+          <h3 class="font-bold text-lg mb-3 text-blue-400">Content Categories</h3>
+          <div class="flex flex-wrap gap-3">
+            <span class="bg-gray-800 px-3 py-1 rounded-full text-sm">Live Sports</span>
+            <span class="bg-gray-800 px-3 py-1 rounded-full text-sm">Movies</span>
+            <span class="bg-gray-800 px-3 py-1 rounded-full text-sm">News</span>
+            <span class="bg-gray-800 px-3 py-1 rounded-full text-sm">Kids</span>
+            <span class="bg-gray-800 px-3 py-1 rounded-full text-sm">Documentaries</span>
+            <span class="bg-gray-800 px-3 py-1 rounded-full text-sm">MYTV</span>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Stats Section -->
-    <section class="mb-12">
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <div class="holographic-card p-6 text-center">
-          <div class="text-3xl font-tech font-bold text-cyan-400 mb-2">10K+</div>
-          <div class="text-gray-300 text-sm">ACTIVE USERS</div>
+    <!-- Join Us -->
+    <section class="glass-card p-6 md:p-8">
+      <h2 class="text-2xl font-bold text-pink-400 mb-2 flex items-center gap-2">
+        <i class="fas fa-user-plus"></i> Become a Reseller!
+      </h2>
+
+      <p class="text-gray-300 mb-4 text-lg">
+        JStore is now offering opportunities for those interested in becoming an OTT reseller.  
+        No large capital needed, simple system with dedicated reseller panel.
+      </p>
+
+      <div class="grid md:grid-cols-3 gap-4 mb-6">
+        <div class="p-4 bg-gray-900/30 rounded-lg">
+          <i class="fas fa-tachometer-alt text-pink-400 text-xl mb-2"></i>
+          <h3 class="font-bold mb-1">Reseller Panel Provided</h3>
+          <p class="text-gray-300 text-sm">Manage your customers and subscriptions with our dedicated dashboard.</p>
         </div>
-        <div class="holographic-card p-6 text-center">
-          <div class="text-3xl font-tech font-bold text-pink-400 mb-2">24/7</div>
-          <div class="text-gray-300 text-sm">SUPPORT</div>
+        <div class="p-4 bg-gray-900/30 rounded-lg">
+          <i class="fas fa-users text-blue-400 text-xl mb-2"></i>
+          <h3 class="font-bold mb-1">Create Users Yourself</h3>
+          <p class="text-gray-300 text-sm">Generate accounts for your customers instantly with your own branding.</p>
         </div>
-        <div class="holographic-card p-6 text-center">
-          <div class="text-3xl font-tech font-bold text-purple-400 mb-2">1K+</div>
-          <div class="text-gray-300 text-sm">CONTENTS</div>
+        <div class="p-4 bg-gray-900/30 rounded-lg">
+          <i class="fas fa-cogs text-green-400 text-xl mb-2"></i>
+          <h3 class="font-bold mb-1">Easy-to-Use System</h3>
+          <p class="text-gray-300 text-sm">Simple interface that requires no technical knowledge to operate.</p>
         </div>
-        <div class="holographic-card p-6 text-center">
-          <div class="text-3xl font-tech font-bold text-green-400 mb-2">99%</div>
-          <div class="text-gray-300 text-sm">UPTIME</div>
+      </div>
+
+      <a href="https://wa.link/qjbe5e" target="_blank"
+         class="inline-block bg-gradient-to-r from-pink-600 to-purple-600 hover:from-pink-700 hover:to-purple-700 text-white font-bold py-3 px-8 rounded-lg glow-btn transition duration-300 flex items-center gap-2">
+        <i class="fab fa-whatsapp"></i> Join Our Reseller Program
+      </a>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="glass-card p-6 md:p-8">
+      <h2 class="text-2xl font-bold text-purple-400 mb-6 flex items-center gap-2">
+        <i class="fas fa-comment-alt"></i> What Our Customers Say
+      </h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="testimonial-card p-5 rounded-xl">
+          <div class="flex items-center mb-4">
+            <div class="w-10 h-10 rounded-full bg-pink-600 flex items-center justify-center mr-3">
+              <span class="font-bold">AS</span>
+            </div>
+            <div>
+              <h4 class="font-bold">Ahmad S.</h4>
+              <div class="flex text-yellow-400 text-sm">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+            </div>
+          </div>
+          <p class="text-gray-300 italic">"Best IPTV service I've used. No buffering during football matches and the channel selection is amazing!"</p>
+        </div>
+        <div class="testimonial-card p-5 rounded-xl">
+          <div class="flex items-center mb-4">
+            <div class="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center mr-3">
+              <span class="font-bold">LS</span>
+            </div>
+            <div>
+              <h4 class="font-bold">Zila</h4>
+              <div class="flex text-yellow-400 text-sm">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+              </div>
+            </div>
+          </div>
+          <p class="text-gray-300 italic">"Easy setup on my Firestick. Customer service helped me instantly when I had login issues. Highly recommended!"</p>
+        </div>
+        <div class="testimonial-card p-5 rounded-xl">
+          <div class="flex items-center mb-4">
+            <div class="w-10 h-10 rounded-full bg-green-600 flex items-center justify-center mr-3">
+              <span class="font-bold">RK</span>
+            </div>
+            <div>
+              <h4 class="font-bold">Raj K.</h4>
+              <div class="flex text-yellow-400 text-sm">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+            </div>
+          </div>
+          <p class="text-gray-300 italic">"Lifetime package is worth every penny. I've been using it for 8 months with zero issues. Great value!"</p>
         </div>
       </div>
     </section>
@@ -442,123 +352,93 @@
   </main>
 
   <!-- Footer -->
-  <footer class="py-8 px-6 text-center relative z-10">
-    <div class="max-w-6xl mx-auto">
+  <footer class="text-center py-8 mt-10 relative z-10 border-t border-gray-800">
+    <div class="max-w-6xl mx-auto px-6">
       <div class="flex flex-col md:flex-row justify-between items-center mb-6">
-        <div class="flex items-center mb-4 md:mb-0">
-          <div class="neon-border rounded-full p-2 mr-4">
-            <img src="https://iili.io/H7B4QYF.png" alt="Logo" class="w-12 h-12" />
-          </div>
-          <div class="text-left">
-            <div class="font-tech font-bold text-xl">JSTORE IPTV</div>
-            <div class="text-gray-400 text-sm">Premium Streaming Experience</div>
-          </div>
+        <div class="mb-4 md:mb-0">
+          <img src="https://iili.io/H7B4QYF.png" alt="Jstore IPTV Logo" class="mx-auto md:mx-0 w-16 mb-2" />
+          <h3 class="text-xl font-bold text-pink-500">JSTORE IPTV</h3>
+          <p class="text-gray-400 text-sm">Premium Streaming Service</p>
         </div>
-        <div class="flex space-x-6">
-          <a href="https://shopee.com.my/jstore.shop" target="_blank" 
-             class="text-gray-400 hover:text-cyan-400 transition-colors">
-            <i class="fab fa-shopify text-2xl"></i>
+        <div class="flex space-x-4 mb-4 md:mb-0">
+          <a href="https://wa.link/qjbe5e" target="_blank" class="bg-green-600 hover:bg-green-700 w-10 h-10 rounded-full flex items-center justify-center">
+            <i class="fab fa-whatsapp"></i>
           </a>
-          <a href="https://wa.link/qjbe5e" target="_blank" 
-             class="text-gray-400 hover:text-green-400 transition-colors">
-            <i class="fab fa-whatsapp text-2xl"></i>
+          <a href="https://shopee.com.my/jstore.shop" target="_blank" class="bg-orange-500 hover:bg-orange-600 w-10 h-10 rounded-full flex items-center justify-center">
+            <i class="fas fa-shopping-cart"></i>
+          </a>
+          <a href="#" class="bg-blue-500 hover:bg-blue-600 w-10 h-10 rounded-full flex items-center justify-center">
+            <i class="fab fa-telegram"></i>
           </a>
         </div>
       </div>
-      <div class="border-t border-gray-800 pt-6">
-        <p class="text-gray-500 text-sm">
-          &copy; 2025 JSTORE. All rights reserved. | Premium OTT Provider
-        </p>
+      <div class="text-sm text-gray-400">
+        &copy; 2025 Jstore IPTV. All rights reserved. | 
+        <a href="#" class="text-pink-400 hover:text-pink-300 ml-1">Privacy Policy</a> | 
+        <a href="#" class="text-pink-400 hover:text-pink-300 ml-1">Terms of Service</a>
       </div>
     </div>
   </footer>
 
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      // Create data stream lines
-      const dataStream = document.getElementById('dataStream');
+      const spaceBg = document.getElementById('spaceBackground');
       
-      for (let i = 0; i < 15; i++) {
-        const line = document.createElement('div');
-        line.classList.add('data-line');
-        
-        const left = Math.random() * 100;
-        const delay = Math.random() * 5;
-        const duration = Math.random() * 3 + 2;
-        
-        line.style.left = `${left}%`;
-        line.style.animationDelay = `${delay}s`;
-        line.style.animationDuration = `${duration}s`;
-        
-        dataStream.appendChild(line);
-      }
-
-      // Create digital particles
-      function createDigitalParticle() {
+      // Create particles
+      for (let i = 0; i < 80; i++) {
         const particle = document.createElement('div');
-        particle.classList.add('digital-particle');
-        particle.textContent = Math.random() > 0.5 ? '0' : '1';
+        particle.classList.add('particle');
         
-        const startX = Math.random() * 100;
-        const endX = startX + (Math.random() * 40 - 20);
+        // Random properties
+        const size = Math.random() * 3 + 1;
+        const posX = Math.random() * 100;
+        const posY = Math.random() * 100;
+        const delay = Math.random() * 15;
+        const duration = Math.random() * 30 + 20;
         
-        particle.style.left = `${startX}%`;
-        particle.style.top = `${Math.random() * 100}%`;
-        particle.style.fontSize = `${Math.random() * 10 + 12}px`;
+        particle.style.width = `${size}px`;
+        particle.style.height = `${size}px`;
+        particle.style.left = `${posX}vw`;
+        particle.style.top = `${posY}vh`;
+        particle.style.animationDelay = `${delay}s`;
+        particle.style.animationDuration = `${duration}s`;
         
-        document.body.appendChild(particle);
-        
-        // Animate particle
-        const animation = particle.animate([
-          { 
-            transform: `translateY(0px) translateX(0px)`, 
-            opacity: 0 
-          },
-          { 
-            transform: `translateY(-100px) translateX(${endX - startX}px)`, 
-            opacity: 0.7 
-          },
-          { 
-            transform: `translateY(-200px) translateX(${(endX - startX) * 2}px)`, 
-            opacity: 0 
-          }
-        ], {
-          duration: Math.random() * 2000 + 2000,
-          easing: 'cubic-bezier(0.215, 0.610, 0.355, 1)'
-        });
-        
-        animation.onfinish = () => {
-          particle.remove();
-        };
+        spaceBg.appendChild(particle);
       }
       
-      // Create initial particles
-      for (let i = 0; i < 20; i++) {
-        setTimeout(() => createDigitalParticle(), i * 100);
+      // Create nebula
+      for (let i = 0; i < 4; i++) {
+        const nebula = document.createElement('div');
+        nebula.classList.add('nebula');
+        
+        const colors = ['#ff00ff', '#00ffff', '#8b5cf6', '#ec4899'];
+        const color = colors[Math.floor(Math.random() * colors.length)];
+        const size = Math.random() * 300 + 100;
+        const posX = Math.random() * 100;
+        const posY = Math.random() * 100;
+        const delay = Math.random() * 10;
+        const duration = Math.random() * 20 + 10;
+        
+        nebula.style.width = `${size}px`;
+        nebula.style.height = `${size}px`;
+        nebula.style.left = `${posX}vw`;
+        nebula.style.top = `${posY}vh`;
+        nebula.style.backgroundColor = color;
+        nebula.style.animationDelay = `${delay}s`;
+        nebula.style.animationDuration = `${duration}s`;
+        
+        spaceBg.appendChild(nebula);
       }
       
-      // Create particles periodically
-      setInterval(createDigitalParticle, 300);
-      
-      // Add hover effect to cards
-      const cards = document.querySelectorAll('.holographic-card');
+      // Add interactive effect to cards
+      const cards = document.querySelectorAll('.glass-card');
       cards.forEach(card => {
-        card.addEventListener('mousemove', (e) => {
-          const rect = card.getBoundingClientRect();
-          const x = e.clientX - rect.left;
-          const y = e.clientY - rect.top;
-          
-          const centerX = rect.width / 2;
-          const centerY = rect.height / 2;
-          
-          const angleY = (x - centerX) * 0.01;
-          const angleX = (centerY - y) * 0.01;
-          
-          card.style.transform = `perspective(1000px) rotateX(${angleX}deg) rotateY(${angleY}deg) translateY(-10px)`;
+        card.addEventListener('mouseenter', () => {
+          card.style.transform = 'translateY(-5px)';
         });
         
         card.addEventListener('mouseleave', () => {
-          card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0)';
+          card.style.transform = 'translateY(0)';
         });
       });
     });
